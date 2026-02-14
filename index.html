@@ -134,4 +134,156 @@
         }
 
         .info p {
-            font-size
+            font-size: 0.7rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 100px 60px;
+            background: #fbfbfb;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .socials a { 
+            display: block;
+            color: #666; 
+            text-decoration: none;
+            font-size: 0.8rem; 
+            margin-bottom: 10px;
+            text-align: right;
+            letter-spacing: 1px;
+        }
+        .socials a:hover { color: #000; }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            header { padding: 20px 30px; }
+            .grid { grid-template-columns: 1fr; } /* No telemóvel fica um por linha */
+            .container { padding: 60px 30px; }
+            footer { flex-direction: column; gap: 40px; }
+        }
+
+        /* LIGHTBOX */
+        #lightbox { 
+            display: none; 
+            position: fixed; 
+            z-index: 10000; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: #fff; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        #lightbox img { max-width: 85%; max-height: 85%; object-fit: contain; }
+        #lightbox .close { position: absolute; top: 30px; right: 40px; font-size: 30px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">A | ARQUITETURA</a>
+    <nav>
+        <a href="#projetos">Trabalhos</a>
+        <a href="#contato">Escritório</a>
+        <a href="https://instagram.com/arquitetoabner" target="_blank"><i class="fab fa-instagram"></i></a>
+    </nav>
+</header>
+
+<div class="slideshow-container">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=1920');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920');"></div>
+</div>
+
+<div id="projetos" class="container">
+    <div class="section-title">Projetos Selecionados</div>
+    
+    <div class="grid">
+        <div class="project-item" onclick="openLightbox(this)">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200"></div>
+            <div class="info">
+                <h3>TK House</h3>
+                <p>Residencial / 2024</p>
+            </div>
+        </div>
+
+        <div class="project-item" onclick="openLightbox(this)">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=1200"></div>
+            <div class="info">
+                <h3>Projeto Alpha</h3>
+                <p>Interiores / São Paulo</p>
+            </div>
+        </div>
+
+        <div class="project-item" onclick="openLightbox(this)">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&w=1200"></div>
+            <div class="info">
+                <h3>Residência R|D</h3>
+                <p>Condomínio / Planejamento</p>
+            </div>
+        </div>
+
+        <div class="project-item" onclick="openLightbox(this)">
+            <div class="img-wrap"><img src="Res. A.L.png"></div>
+            <div class="info">
+                <h3>Residência AL</h3>
+                <p>Arquitetura Contemporânea</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="contato">
+    <div class="footer-brand">
+        A | ARQUITETURA
+        <p style="font-family: 'Montserrat'; font-size: 0.7rem; color: #999; margin-top: 10px; letter-spacing: 2px;">SÃO JOSÉ DOS CAMPOS - SP</p>
+    </div>
+    <div class="socials">
+        <a href="https://wa.me/5512988518440" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/arquitetoabner" target="_blank">Instagram</a>
+        <a href="mailto:seuemail@exemplo.com">Email</a>
+    </div>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="">
+</div>
+
+<script>
+    // Slideshow Suave
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 6000); // 6 segundos para uma transição mais calma
+
+    // Lightbox
+    function openLightbox(element) {
+        const imgSrc = element.querySelector('img').src;
+        document.getElementById('lightbox-img').src = imgSrc;
+        document.getElementById('lightbox').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Trava o scroll ao ver foto
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Destrava o scroll
+    }
+</script>
+
+</body>
+</html>
