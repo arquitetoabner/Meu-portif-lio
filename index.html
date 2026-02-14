@@ -14,6 +14,7 @@
             color: #ffffff; 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth; /* Rolagem suave ao clicar no menu */
         }
 
         /* HEADER */
@@ -44,7 +45,7 @@
         }
         nav a:hover { color: #fff; }
 
-        /* TEXTO INTRODUTÓRIO (Novo Estilo) */
+        /* INTRO / MISSÃO */
         .intro-container {
             max-width: 800px;
             margin: 0 auto;
@@ -61,10 +62,15 @@
             text-transform: uppercase;
         }
 
+        /* Área de Texto da Missão */
+        .mission-content {
+            padding-top: 20px; /* Espaço para o scroll não colar no texto */
+        }
+
         .text-content p {
             color: #888;
             font-size: 1rem;
-            line-height: 1.8; /* Mais respiro entre as linhas */
+            line-height: 1.8;
             font-weight: 300;
             margin-bottom: 25px;
         }
@@ -82,7 +88,7 @@
         .final-quote {
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid #222; /* Linha sutil separando a frase final */
+            border-top: 1px solid #222;
             color: #ccc !important;
             font-style: italic;
         }
@@ -286,6 +292,7 @@
 
 <header>
     <nav>
+        <a href="#missao">Missão</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#contato">Contato</a>
         <a href="https://instagram.com/arquitetoabner" target="_blank">Instagram</a>
@@ -294,7 +301,7 @@
     <div class="intro-container">
         <h1 class="intro-title">Onde o traço encontra a vida</h1>
         
-        <div class="text-content">
+        <div id="missao" class="mission-content text-content">
             <p>Acreditamos que um projeto começa muito antes do primeiro risco no papel. Ele nasce da escuta, da percepção dos ritmos e do entendimento de que o espaço molda quem o habita. Para nós, a ARQUITETURA é o equilíbrio entre o rigor técnico e a sensibilidade de criar cenários que estimulam o toque, o olhar e o bem-estar.</p>
 
             <h3>Do Repertório à Realidade</h3>
