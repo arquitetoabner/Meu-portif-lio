@@ -6,41 +6,159 @@
     <title>A | ARQUITETURA - Abner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #1a1a1a; --accent: #8e8e8e; --bg: #ffffff; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--primary); line-height: 1.6; }
+        /* Configurações Gerais - O "Dark Mode" */
+        :root { 
+            --bg: #0a0a0a;       /* Fundo quase preto, mais elegante que o preto puro */
+            --text: #f0f0f0;     /* Texto quase branco */
+            --accent: #888888;   /* Cinza para detalhes */
+        }
         
-        /* Header e Menu */
-        header { padding: 60px 20px; text-align: center; background: #fff; }
-        .logo { font-size: 1.8rem; letter-spacing: 8px; font-weight: 300; text-transform: uppercase; border-bottom: 1px solid #eee; display: inline-block; padding-bottom: 10px; margin-bottom: 20px; }
-        nav { margin-top: 20px; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--accent); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            line-height: 1.8; /* Espaçamento de linha maior para elegância */
+        }
+        
+        /* Menu e Navegação */
+        header { 
+            padding: 40px 20px; 
+            text-align: center; 
+            position: fixed; 
+            width: 100%; 
+            background: rgba(10, 10, 10, 0.95); 
+            z-index: 100; 
+            top: 0;
+            border-bottom: 1px solid #222;
+        }
 
-        /* Banner */
-        .hero { height: 40vh; background: #f9f9f9; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-        .hero h2 { font-weight: 300; font-size: 2.2rem; letter-spacing: 2px; }
+        .logo { 
+            font-size: 2rem; 
+            letter-spacing: 10px; 
+            font-weight: 300; 
+            text-transform: uppercase; 
+            color: #fff;
+            margin-bottom: 20px;
+            display: block;
+        }
 
-        /* Galeria */
-        .section-title { text-align: center; padding: 60px 0 30px; letter-spacing: 3px; text-transform: uppercase; font-size: 1.1rem; border-top: 1px solid #f0f0f0; margin-top: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 15px; padding: 15px; max-width: 1400px; margin: 0 auto; }
-        .item { position: relative; height: 400px; background: #eee; overflow: hidden; border-radius: 2px; cursor: pointer; }
-        .item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-        .item:hover img { transform: scale(1.05); }
-        .item-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 40px 25px 25px; color: #fff; }
-        .item-overlay h3 { margin: 0; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
+        nav { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        nav a { 
+            text-decoration: none; 
+            color: var(--accent); 
+            font-size: 0.75rem; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            transition: 0.4s; 
+        }
+        nav a:hover { color: #fff; }
 
-        /* Estilo do Lightbox (Imagem em tela cheia) */
-        #lightbox { display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-        #lightbox img { max-width: 90%; max-height: 80%; border: 3px solid #fff; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-        #lightbox .close { position: absolute; top: 30px; right: 40px; color: #fff; font-size: 40px; cursor: pointer; font-weight: bold; }
+        /* Seção de Texto (O "Bem Vindo" inspirado no Otta) */
+        .intro-text {
+            padding: 180px 20px 100px; /* Espaço extra no topo por causa do menu fixo */
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .intro-text h1 {
+            font-weight: 300;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .intro-text p {
+            color: #ccc;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
 
-        footer { padding: 80px 20px; text-align: center; background: #fafafa; }
-        .contact-btn { display: inline-block; padding: 18px 45px; border: 1px solid var(--primary); text-decoration: none; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; margin-top: 20px; }
-        .contact-btn:hover { background: var(--primary); color: #fff; }
-        .social-links { margin-bottom: 25px; }
-        .social-links a { color: var(--primary); font-size: 1.6rem; margin: 0 15px; text-decoration: none; }
+        /* Seção de Vídeo (Drone) */
+        #video {
+            padding: 60px 20px;
+            text-align: center;
+            background: #111;
+        }
+        .video-placeholder {
+            max-width: 1000px;
+            height: 500px;
+            background: #222;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+        }
+        .video-placeholder i { font-size: 4rem; color: #444; }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .hero h2 { font-size: 1.6rem; } }
+        /* Galeria de Projetos */
+        .section-header { text-align: center; margin: 80px 0 40px; }
+        .section-header span { font-size: 0.8rem; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 2px; /* Gap bem fino para parecer um mosaico */
+            padding: 0; 
+        }
+        
+        .item { 
+            position: relative; 
+            height: 500px; /* Imagens mais altas e imponentes */
+            background: #1a1a1a; 
+            overflow: hidden; 
+            cursor: pointer; 
+        }
+        
+        .item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.5s; 
+            opacity: 0.8; /* Imagem levemente escurecida */
+        }
+        
+        .item:hover img { 
+            transform: scale(1.05); 
+            opacity: 1; /* Fica clara ao passar o mouse */
+        }
+        
+        .item-info {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .item-info h3 {
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Lightbox */
+        #lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        #lightbox img { max-width: 90%; max-height: 90%; box-shadow: 0 0 50px rgba(0,0,0,1); }
+        #lightbox .close { position: absolute; top: 30px; right: 40px; color: #fff; font-size: 40px; cursor: pointer; font-weight: 300; }
+
+        /* Rodapé */
+        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #222; margin-top: 50px; }
+        .social-links a { color: #fff; font-size: 1.5rem; margin: 0 20px; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent); }
+        .footer-text { margin-top: 40px; color: #555; font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 1.5rem; letter-spacing: 5px; }
+            nav { gap: 15px; }
+            .intro-text h1 { font-size: 1.8rem; }
+            .item { height: 350px; }
+        }
     </style>
 </head>
 <body>
@@ -48,76 +166,86 @@
 <header>
     <div class="logo">A | ARQUITETURA</div>
     <nav>
-        <a href="#projetos">Projetos</a>
+        <a href="#home">Home</a>
+        <a href="#video">Vídeo</a>
+        <a href="#portfolio">Portfólio</a>
         <a href="#contato">Contato</a>
     </nav>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h2>Arquitetura Contemporânea & <br>Design Funcional.</h2>
-        <p style="color: #888; font-style: italic;">São José dos Campos e Região.</p>
+<section id="home" class="intro-text">
+    <h1>Arquitetura & Identidade</h1>
+    <p>Bem-vindo à A|ARQUITETURA. Desenvolvemos projetos em São José dos Campos que unem a estética contemporânea à funcionalidade essencial. Cada traço é pensado para transformar espaços vazios em cenários de vida.</p>
+</section>
+
+<section id="video">
+    <div class="section-header"><span>Cinematografia Aérea</span></div>
+    <div class="video-placeholder">
+        <div>
+            <i class="fas fa-play-circle"></i>
+            <p style="color: #666; letter-spacing: 2px; margin-top: 20px;">VÍDEO DRONE EM BREVE</p>
+        </div>
     </div>
 </section>
 
-<div id="projetos" class="section-title">Portfólio de Projetos</div>
+<div id="portfolio" class="section-header"><span>Projetos Selecionados</span></div>
 
 <section class="grid">
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200" alt="TK HOUSE">
-        <div class="item-overlay"><h3>TK HOUSE</h3></div>
+        <div class="item-info"><h3>TK HOUSE</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=1200" alt="Proj. Alpha">
-        <div class="item-overlay"><h3>Proj. Alpha</h3></div>
+        <div class="item-info"><h3>Proj. Alpha</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&w=1200" alt="Res. R|D">
-        <div class="item-overlay"><h3>Res. R|D</h3></div>
+        <div class="item-info"><h3>Res. R|D</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200" alt="Ibiza house">
-        <div class="item-overlay"><h3>Ibiza house</h3></div>
+        <div class="item-info"><h3>Ibiza house</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200" alt="Res. W|M">
-        <div class="item-overlay"><h3>Res. W|M</h3></div>
+        <div class="item-info"><h3>Res. W|M</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=1200" alt="Proj. M|Z">
-        <div class="item-overlay"><h3>Proj. M|Z</h3></div>
+        <div class="item-info"><h3>Proj. M|Z</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200" alt="Proj. M|V">
-        <div class="item-overlay"><h3>Proj. M|V</h3></div>
+        <div class="item-info"><h3>Proj. M|V</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200" alt="Proj. Nascer">
-        <div class="item-overlay"><h3>Proj. Nascer</h3></div>
+        <div class="item-info"><h3>Proj. Nascer</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200" alt="Proj. V|S">
-        <div class="item-overlay"><h3>Proj. V|S</h3></div>
+        <div class="item-info"><h3>Proj. V|S</h3></div>
     </div>
     <div class="item" onclick="openLightbox(this)">
         <img src="Res. A.L.png" alt="Res. AL">
-        <div class="item-overlay"><h3>Res. AL</h3></div>
+        <div class="item-info"><h3>Res. AL</h3></div>
     </div>
 </section>
 
-<div id="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
     <img id="lightbox-img" src="">
 </div>
 
 <footer id="contato">
+    <div class="section-header"><span>Entre em Contato</span></div>
     <div class="social-links">
         <a href="https://instagram.com/arquitetoabner" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/5512988518440" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p>Vamos transformar sua ideia em um projeto real?</p>
-    <a href="https://wa.me/5512988518440?text=Olá%20Abner,%20vi%20seu%20site%20e%20gostaria%20de%20um%20orçamento!" class="contact-btn" target="_blank">Solicitar Orçamento</a>
-    <p style="margin-top: 50px; font-size: 0.7rem; color: #999;">&copy; 2026 A|ARQUITETURA - SÃO JOSÉ DOS CAMPOS</p>
+    <p class="footer-text" style="color: #888; margin-top: 20px;">SÃO JOSÉ DOS CAMPOS - SP</p>
+    <div class="footer-text">&copy; 2026 A|ARQUITETURA</div>
 </footer>
 
 <script>
@@ -128,10 +256,6 @@
     }
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
-    }
-    // Fecha clicando fora da imagem
-    document.getElementById('lightbox').onclick = function(e) {
-        if (e.target.id === 'lightbox') closeLightbox();
     }
 </script>
 
