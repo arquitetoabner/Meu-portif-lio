@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A | ARQUITETURA - Abner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
     <style>
         /* ESTILO GERAL (Dark Mode) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,8 +12,7 @@
         body { 
             background-color: #050505; 
             color: #ffffff; 
-            /* AQUI ESTÁ A MUDANÇA DA FONTE */
-            font-family: 'Space Mono', monospace; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
@@ -31,6 +25,7 @@
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid #222;
+            /* Altura ajustável automaticamente */
             min-height: auto; 
         }
 
@@ -44,10 +39,10 @@
         nav a {
             text-decoration: none;
             color: #888;
-            font-size: 0.75rem; /* Ajustei levemente para a nova fonte */
-            letter-spacing: 1px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 700; /* Mais peso para destacar na fonte mono */
+            font-weight: 600;
             transition: 0.3s;
             cursor: pointer;
         }
@@ -55,24 +50,24 @@
 
         /* INTRO */
         .intro-container {
-            max-width: 900px; /* Aumentei um pouco pois fonte mono ocupa mais espaço */
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
             padding-bottom: 20px;
         }
 
         .intro-title {
-            font-weight: 400; /* Fonte mono já é forte, 400 fica elegante */
-            font-size: 2.2rem;
-            letter-spacing: -1px; /* Aproxima um pouco as letras mono */
-            margin-bottom: 20px;
+            font-weight: 300;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px; /* Reduzi um pouco para ficar elegante quando sem texto */
             color: #fff;
             text-transform: uppercase;
         }
 
         /* ÁREA DA MISSÃO (Escondida por padrão) */
         #missao-texto {
-            display: none; 
+            display: none; /* O Segredo: Começa escondido */
             padding-top: 20px;
             animation: fadeIn 0.8s ease;
         }
@@ -84,22 +79,20 @@
 
         .text-content p {
             color: #888;
-            font-size: 0.9rem; /* Fonte mono é maior, diminuí para equilibrar */
-            line-height: 1.9;
-            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
             margin-bottom: 25px;
-            text-align: justify; /* Fica bonito com mono */
         }
 
         .text-content h3 {
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-top: 40px;
             margin-bottom: 15px;
-            font-weight: 700;
-            text-decoration: underline; /* Um toque técnico */
+            font-weight: 600;
         }
 
         .final-quote {
@@ -108,7 +101,6 @@
             border-top: 1px solid #222;
             color: #ccc !important;
             font-style: italic;
-            text-align: center;
         }
 
         /* SEÇÃO DIVIDIDA */
@@ -149,11 +141,10 @@
         .portfolio-header {
             text-align: center;
             padding: 80px 0 40px;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: #444;
-            font-weight: 700;
         }
 
         .grid {
@@ -189,14 +180,12 @@
         }
 
         .project-info h3 {
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 400;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin: 0;
-            background: rgba(0,0,0,0.6); /* Fundo sutil para ler melhor a fonte mono */
-            padding: 5px 10px;
-            display: inline-block;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
         /* LIGHTBOX */
@@ -220,7 +209,6 @@
             max-width: 1600px;
             background: #050505;
             box-shadow: 0 0 50px rgba(20,20,20,0.5);
-            border: 1px solid #333; /* Borda técnica */
         }
 
         .lightbox-text {
@@ -233,9 +221,9 @@
         }
 
         .lightbox-text h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -1px;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
             margin-bottom: 30px;
             color: #fff;
             text-transform: uppercase;
@@ -244,10 +232,10 @@
         }
 
         .lightbox-text p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #aaa;
-            font-weight: 400;
+            color: #999;
+            font-weight: 300;
         }
 
         .lightbox-image {
@@ -283,13 +271,13 @@
             border-top: 1px solid #222;
             margin-top: 50px;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #666;
             line-height: 2;
         }
         .footer-address a { color: #888; text-decoration: none; transition: 0.3s; display: block; }
-        .footer-address a:hover { color: #fff; text-decoration: underline; }
-        .footer-email { margin-top: 20px; display: block; color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0px; }
+        .footer-address a:hover { color: #fff; }
+        .footer-email { margin-top: 20px; display: block; color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
         .socials { margin-top: 30px; }
         .socials a { color: #fff; font-size: 1.4rem; margin: 0 15px; text-decoration: none; }
 
@@ -302,14 +290,10 @@
             .logo-box { height: 250px; border-right: none; border-bottom: 1px solid #222; }
             .video-box { height: 300px; }
             .grid { grid-template-columns: 1fr; }
-            
             .lightbox-content { flex-direction: column-reverse; width: 100%; height: 100%; }
             .lightbox-text { width: 100%; height: 40%; padding: 20px; overflow-y: auto; border-right: none; border-top: 1px solid #222; }
             .lightbox-image { width: 100%; height: 60%; }
             .lightbox-text h2 { font-size: 1.4rem; margin-bottom: 15px; }
-            
-            /* Ajuste fonte mobile */
-            .intro-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -447,6 +431,7 @@
 </div>
 
 <script>
+    // FUNÇÃO PARA MOSTRAR/ESCONDER A MISSÃO
     function toggleMission() {
         var x = document.getElementById("missao-texto");
         if (x.style.display === "block") {
@@ -456,6 +441,7 @@
         }
     }
 
+    // FUNÇÕES DO LIGHTBOX
     function openLightbox(el) {
         const src = el.querySelector('img').src;
         const title = el.querySelector('h3').innerText;
