@@ -4,59 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A | ARQUITETURA - Abner</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         /* RESET E BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            background-color: #ffffff; 
-            color: #333; 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #fff; 
+            color: #1a1a1a; 
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* HEADER (TOPO) */
+        /* HEADER - Mais fino e minimalista */
         header { 
             position: fixed; 
             top: 0; 
             left: 0; 
             width: 100%; 
-            padding: 25px 50px; 
+            padding: 30px 60px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(255, 255, 255, 0.95); 
+            background: rgba(255, 255, 255, 0.98); 
             z-index: 1000;
         }
 
         .logo { 
-            font-size: 0.9rem; 
+            font-size: 1.1rem; 
             font-weight: 700; 
-            letter-spacing: 2px; 
+            letter-spacing: 4px; 
             text-transform: uppercase; 
             color: #000; 
             text-decoration: none; 
         }
 
         nav a { 
-            margin-left: 30px; 
+            margin-left: 40px; 
             text-decoration: none; 
-            color: #888; 
-            font-size: 0.7rem; 
-            letter-spacing: 1.5px; 
+            color: #666; 
+            font-size: 0.75rem; 
+            letter-spacing: 2px; 
             text-transform: uppercase; 
             transition: 0.3s; 
+            font-weight: 400;
         }
         nav a:hover { color: #000; }
 
-        /* SLIDESHOW (CAPA) */
+        /* SLIDESHOW - Ocupa a tela toda com suavidade */
         .slideshow-container {
             position: relative;
             width: 100%;
-            height: 100vh; /* Tela cheia */
-            overflow: hidden;
-            margin-bottom: 60px;
+            height: 100vh;
+            background: #f9f9f9;
         }
 
         .slide {
@@ -66,251 +70,68 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 2s ease-in-out;
             background-size: cover;
             background-position: center;
         }
 
         .slide.active { opacity: 1; }
 
-        /* GRID DE PROJETOS */
+        /* GRID DE PROJETOS - Inspirado em galerias de arte */
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 50px 100px;
+            padding: 120px 60px;
         }
 
         .section-title {
-            font-size: 0.8rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: #1a1a1a;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 400;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            column-gap: 40px;
-            row-gap: 80px; /* Bastante espaço vertical entre projetos */
+            grid-template-columns: repeat(2, 1fr); /* Dois por linha como na Bernardes */
+            column-gap: 60px;
+            row-gap: 100px;
         }
 
         .project-item {
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
         .img-wrap {
             width: 100%;
-            height: 350px; /* Altura fixa para alinhar */
+            aspect-ratio: 3 / 2; /* Mantém proporção de fotografia profissional */
             overflow: hidden;
-            background: #f0f0f0;
+            background: #f7f7f7;
+            margin-bottom: 20px;
         }
 
         .img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.7s ease;
-            filter: grayscale(100%); /* Começa preto e branco */
+            transition: transform 1.2s cubic-bezier(0.15, 0.75, 0.5, 1);
         }
 
         .project-item:hover .img-wrap img {
-            transform: scale(1.03);
-            filter: grayscale(0%); /* Fica colorido ao passar o mouse */
-        }
-
-        .info {
-            margin-top: 15px;
+            transform: scale(1.05);
         }
 
         .info h3 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #000;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
             margin-bottom: 5px;
         }
 
         .info p {
-            font-size: 0.75rem;
-            color: #777;
-            letter-spacing: 0.5px;
-        }
-
-        /* FOOTER */
-        footer {
-            padding: 50px;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .socials a { color: #333; font-size: 1.2rem; margin-left: 15px; }
-
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            header { padding: 20px; }
-            .slideshow-container { height: 60vh; } /* Menor no celular */
-            .container { padding: 0 20px 60px; }
-            .grid { grid-template-columns: 1fr; gap: 40px; }
-            footer { flex-direction: column; gap: 20px; text-align: center; }
-        }
-
-        /* LIGHTBOX */
-        #lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); justify-content: center; align-items: center; }
-        #lightbox img { max-width: 90%; max-height: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-        #lightbox .close { position: absolute; top: 30px; right: 40px; font-size: 40px; cursor: pointer; color: #000; }
-    </style>
-</head>
-<body>
-
-<header>
-    <a href="#" class="logo">A | ARQUITETURA</a>
-    <nav>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-        <a href="https://instagram.com/arquitetoabner" target="_blank"><i class="fab fa-instagram"></i></a>
-    </nav>
-</header>
-
-<div class="slideshow-container">
-    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=1920');"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920');"></div>
-</div>
-
-<div id="projetos" class="container">
-    <div class="section-title">Projetos Selecionados</div>
-    
-    <div class="grid">
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>TK HOUSE</h3>
-                <p>Residencial</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Proj. Alpha</h3>
-                <p>Interiores</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Res. R|D</h3>
-                <p>Condomínio</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Ibiza house</h3>
-                <p>Veraneio</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Res. W|M</h3>
-                <p>Residencial</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Proj. M|Z</h3>
-                <p>Reforma</p>
-            </div>
-        </div>
-        
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Proj. M|V</h3>
-                <p>Comercial</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Proj. Nascer</h3>
-                <p>Conceitual</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800"></div>
-            <div class="info">
-                <h3>Proj. V|S</h3>
-                <p>Residencial</p>
-            </div>
-        </div>
-
-        <div class="project-item" onclick="openLightbox(this)">
-            <div class="img-wrap"><img src="Res. A.L.png"></div>
-            <div class="info">
-                <h3>Res. AL</h3>
-                <p>Residencial</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer id="contato">
-    <div>
-        <p style="margin-bottom: 5px; color: #333;">A | ARQUITETURA</p>
-        <p>São José dos Campos - SP</p>
-    </div>
-    <div class="socials">
-        <a href="https://wa.me/5512988518440" target="_blank">WhatsApp</a>
-        <a href="https://instagram.com/arquitetoabner" target="_blank">Instagram</a>
-    </div>
-</footer>
-
-<div id="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" src="">
-</div>
-
-<script>
-    // Slideshow Automático
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-    setInterval(nextSlide, 5000); // Muda a cada 5 segundos
-
-    // Lightbox
-    function openLightbox(element) {
-        const imgSrc = element.querySelector('img').src;
-        document.getElementById('lightbox-img').src = imgSrc;
-        document.getElementById('lightbox').style.display = 'flex';
-    }
-    function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-    }
-</script>
-
-</body>
-</html>
+            font-size
