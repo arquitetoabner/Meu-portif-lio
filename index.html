@@ -14,7 +14,7 @@
             color: #ffffff; 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             -webkit-font-smoothing: antialiased;
-            scroll-behavior: smooth; /* Rolagem suave ao clicar no menu */
+            scroll-behavior: smooth;
         }
 
         /* HEADER */
@@ -25,6 +25,8 @@
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid #222;
+            /* Altura ajustável automaticamente */
+            min-height: auto; 
         }
 
         nav {
@@ -42,10 +44,11 @@
             text-transform: uppercase;
             font-weight: 600;
             transition: 0.3s;
+            cursor: pointer;
         }
         nav a:hover { color: #fff; }
 
-        /* INTRO / MISSÃO */
+        /* INTRO */
         .intro-container {
             max-width: 800px;
             margin: 0 auto;
@@ -57,14 +60,21 @@
             font-weight: 300;
             font-size: 2.5rem;
             letter-spacing: 1px;
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Reduzi um pouco para ficar elegante quando sem texto */
             color: #fff;
             text-transform: uppercase;
         }
 
-        /* Área de Texto da Missão */
-        .mission-content {
-            padding-top: 20px; /* Espaço para o scroll não colar no texto */
+        /* ÁREA DA MISSÃO (Escondida por padrão) */
+        #missao-texto {
+            display: none; /* O Segredo: Começa escondido */
+            padding-top: 20px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .text-content p {
@@ -280,7 +290,6 @@
             .logo-box { height: 250px; border-right: none; border-bottom: 1px solid #222; }
             .video-box { height: 300px; }
             .grid { grid-template-columns: 1fr; }
-            
             .lightbox-content { flex-direction: column-reverse; width: 100%; height: 100%; }
             .lightbox-text { width: 100%; height: 40%; padding: 20px; overflow-y: auto; border-right: none; border-top: 1px solid #222; }
             .lightbox-image { width: 100%; height: 60%; }
@@ -292,7 +301,7 @@
 
 <header>
     <nav>
-        <a href="#missao">Missão</a>
+        <a onclick="toggleMission()">Missão</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#contato">Contato</a>
         <a href="https://instagram.com/arquitetoabner" target="_blank">Instagram</a>
@@ -301,7 +310,7 @@
     <div class="intro-container">
         <h1 class="intro-title">Onde o traço encontra a vida</h1>
         
-        <div id="missao" class="mission-content text-content">
+        <div id="missao-texto" class="text-content">
             <p>Acreditamos que um projeto começa muito antes do primeiro risco no papel. Ele nasce da escuta, da percepção dos ritmos e do entendimento de que o espaço molda quem o habita. Para nós, a ARQUITETURA é o equilíbrio entre o rigor técnico e a sensibilidade de criar cenários que estimulam o toque, o olhar e o bem-estar.</p>
 
             <h3>Do Repertório à Realidade</h3>
@@ -334,105 +343,62 @@
 <div id="portfolio" class="portfolio-header">Projetos Selecionados</div>
 
 <div class="grid">
-    
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Conceito arquitetônico arrojado, explorando balanços estruturais e materiais industriais como aço e vidro em harmonia com a natureza.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Conceito arquitetônico arrojado, explorando balanços estruturais e materiais industriais como aço e vidro em harmonia com a natureza.">
         <img src="Res. nascer.png" alt="Proj. Nascer">
         <div class="project-info"><h3>Proj. Nascer</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Residência contemporânea com design exclusivo. A integração dos ambientes e a valorização da luz natural criam uma atmosfera única.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Residência contemporânea com design exclusivo. A integração dos ambientes e a valorização da luz natural criam uma atmosfera única.">
         <img src="CASA-TJ.png" alt="CASA TJ">
         <div class="project-info"><h3>CASA TJ</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Projeto residencial contemporâneo. A integração dos ambientes sociais promove a convivência familiar em um espaço amplo e iluminado.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Projeto residencial contemporâneo. A integração dos ambientes sociais promove a convivência familiar em um espaço amplo e iluminado.">
         <img src="Res. A.L.png" alt="Res. AL">
         <div class="project-info"><h3>Res. AL</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Residência de alto padrão que combina elegância e tecnologia. Automação residencial integrada ao design para máximo conforto.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Residência de alto padrão que combina elegância e tecnologia. Automação residencial integrada ao design para máximo conforto.">
         <img src="CASA VS.png" alt="Proj. V|S">
         <div class="project-info"><h3>Proj. V|S</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Projeto com volumetria dinâmica e uso inteligente do terreno em declive. A piscina com borda infinita conecta visualmente a casa à paisagem.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Projeto com volumetria dinâmica e uso inteligente do terreno em declive. A piscina com borda infinita conecta visualmente a casa à paisagem.">
         <img src="CASA MV.png" alt="Proj. M|V">
         <div class="project-info"><h3>Proj. M|V</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Reforma completa transformando uma estrutura existente em uma obra contemporânea. Foco na funcionalidade e renovação estética da fachada.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Reforma completa transformando uma estrutura existente em uma obra contemporânea. Foco na funcionalidade e renovação estética da fachada.">
         <img src="Res. MZ.png" alt="Proj. M|Z">
         <div class="project-info"><h3>Proj. M|Z</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Casa de veraneio inspirada no minimalismo tropical. Áreas de lazer integradas e paisagismo exuberante para momentos de relaxamento.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Casa de veraneio inspirada no minimalismo tropical. Áreas de lazer integradas e paisagismo exuberante para momentos de relaxamento.">
         <img src="Res. ibiza.png" alt="Ibiza house">
         <div class="project-info"><h3>Ibiza house</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)" 
-         data-description="Residência unifamiliar com foco na integração entre interior e exterior. Grandes vãos livres e uso de materiais naturais definem a identidade deste projeto.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Residência unifamiliar com foco na integração entre interior e exterior. Grandes vãos livres e uso de materiais naturais definem a identidade deste projeto.">
         <img src="CASA TK HOUSE.png" alt="TK HOUSE">
         <div class="project-info"><h3>TK HOUSE</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Projeto de interiores para residência em Alphaville. A paleta de cores neutras e o design de iluminação criam uma atmosfera sofisticada e acolhedora.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Projeto de interiores para residência em Alphaville. A paleta de cores neutras e o design de iluminação criam uma atmosfera sofisticada e acolhedora.">
         <img src="CASA ALPHA.png" alt="Proj. Alpha">
         <div class="project-info"><h3>Proj. Alpha</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Concepção arquitetônica que prioriza a privacidade e o conforto térmico. Fachada imponente com elementos ripados e concreto aparente.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Concepção arquitetônica que prioriza a privacidade e o conforto térmico. Fachada imponente com elementos ripados e concreto aparente.">
         <img src="Res. RD.png" alt="Res. R|D">
         <div class="project-info"><h3>Res. R|D</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Residência moderna com linhas puras e volumetria marcante. O projeto explora a luz natural através de grandes aberturas envidraçadas.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Residência moderna com linhas puras e volumetria marcante. O projeto explora a luz natural através de grandes aberturas envidraçadas.">
         <img src="CASA-WM.png" alt="Res. W|M">
         <div class="project-info"><h3>Res. W|M</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Um refúgio urbano que prioriza a serenidade. Tons terrosos e iluminação difusa criam ambientes de pura contemplação e descanso.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Um refúgio urbano que prioriza a serenidade. Tons terrosos e iluminação difusa criam ambientes de pura contemplação e descanso.">
         <img src="CASA-CALMA.png" alt="CASA CALMA">
         <div class="project-info"><h3>CASA CALMA</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Projeto marcado pela solidez e elegância do concreto aparente. Linhas retas e grandes planos definem a volumetria contemporânea desta residência.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Projeto marcado pela solidez e elegância do concreto aparente. Linhas retas e grandes planos definem a volumetria contemporânea desta residência.">
         <img src="CASA-MF.png" alt="CASA MF">
         <div class="project-info"><h3>CASA MF</h3></div>
     </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Delicadeza e força estrutural se encontram neste projeto. O paisagismo se funde à arquitetura, criando uma atmosfera de leveza e frescor.">
+    <div class="project-item" onclick="openLightbox(this)" data-description="Delicadeza e força estrutural se encontram neste projeto. O paisagismo se funde à arquitetura, criando uma atmosfera de leveza e frescor.">
         <img src="CASA-LIRIO.png" alt="CASA LIRIO">
         <div class="project-info"><h3>CASA LIRIO</h3></div>
     </div>
-
 </div>
 
 <footer id="contato">
@@ -465,6 +431,17 @@
 </div>
 
 <script>
+    // FUNÇÃO PARA MOSTRAR/ESCONDER A MISSÃO
+    function toggleMission() {
+        var x = document.getElementById("missao-texto");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+    // FUNÇÕES DO LIGHTBOX
     function openLightbox(el) {
         const src = el.querySelector('img').src;
         const title = el.querySelector('h3').innerText;
