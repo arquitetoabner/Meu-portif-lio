@@ -6,124 +6,137 @@
     <title>A | ARQUITETURA - Abner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ESTILO OTTA ALBERNAZ (DARK MODE) */
+        /* ESTILO GERAL (Dark Mode) */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            background-color: #000000; /* Preto Absoluto */
+            background-color: #050505; /* Preto quase absoluto */
             color: #ffffff; 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            text-align: center; /* Tudo centralizado como no site referência */
             -webkit-font-smoothing: antialiased;
         }
 
-        /* HEADER: Logo Grande + Menu Embaixo */
-        header { 
-            padding: 60px 20px 40px; 
-            background: #000;
+        /* LAYOUT DIVIDIDO (TOPO) */
+        .top-split {
+            display: flex;
+            min-height: 100vh; /* Ocupa a altura da tela */
+            border-bottom: 1px solid #222;
         }
 
-        .logo { 
-            font-size: 2.5rem; 
-            font-weight: 300; 
-            letter-spacing: 8px; 
-            text-transform: uppercase; 
-            color: #fff; 
-            display: block;
-            margin-bottom: 30px;
+        /* LADO ESQUERDO - LOGO */
+        .left-panel {
+            width: 35%; /* Largura da barra da logo */
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #222;
+            padding: 40px;
+        }
+
+        .logo-img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            /* Se não tiver imagem ainda, isso segura o espaço */
+            font-size: 2rem; 
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-align: center;
+            border: 1px dashed #333; /* Remover borda quando colocar a logo real */
+            padding: 20px;
+            color: #555;
+        }
+
+        /* LADO DIREITO - CONTEÚDO */
+        .right-panel {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* MENU DE NAVEGAÇÃO */
+        nav {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: flex-end; /* Menu alinhado à direita */
+            gap: 40px;
+        }
+
+        nav a {
             text-decoration: none;
-        }
-
-        nav { 
-            display: flex; 
-            justify-content: center; 
-            gap: 30px; 
-            border-top: 1px solid #333; /* Linha fina separando logo do menu */
-            border-bottom: 1px solid #333;
-            padding: 20px 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        nav a { 
-            text-decoration: none; 
-            color: #888; 
-            font-size: 0.75rem; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            transition: 0.3s; 
+            color: #666;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: 0.3s;
         }
         nav a:hover { color: #fff; }
 
-        /* SEÇÃO DE TEXTO (MANIFESTO) */
+        /* TEXTO DE INTRODUÇÃO */
         .intro {
-            padding: 80px 20px;
-            max-width: 700px;
-            margin: 0 auto;
+            padding: 60px 60px 40px;
+            text-align: left;
         }
         .intro h1 {
             font-weight: 300;
-            font-size: 1.8rem;
-            letter-spacing: 2px;
+            font-size: 2rem;
+            letter-spacing: 1px;
             margin-bottom: 20px;
             color: #fff;
         }
         .intro p {
-            color: #666;
+            color: #888;
             font-size: 1rem;
-            line-height: 1.8;
+            line-height: 1.6;
             font-weight: 300;
+            max-width: 600px;
         }
 
-        /* SEÇÃO DE VÍDEO (Placeholder) */
+        /* VÍDEO */
         .video-section {
-            width: 100%;
-            height: 60vh;
+            flex-grow: 1; /* Ocupa o resto do espaço */
             background: #111;
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 80px;
-            overflow: hidden;
-            position: relative;
         }
-        /* Imagem de fundo simulando a capa do vídeo */
         .video-cover {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.4;
-        }
-        .play-btn {
+            opacity: 0.5;
             position: absolute;
-            font-size: 4rem;
-            color: #fff;
-            opacity: 0.8;
-            cursor: pointer;
         }
+        .play-icon { font-size: 3rem; color: #fff; z-index: 2; opacity: 0.8; }
 
-        /* PORTFÓLIO (GRID) */
-        .portfolio-title {
+        /* PORTFÓLIO GRID */
+        .portfolio-header {
+            text-align: center;
+            padding: 80px 0 40px;
             font-size: 0.8rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #444;
-            margin-bottom: 50px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 4px; /* Gap muito fino, quase colado */
-            padding: 0 4px;
+            gap: 2px;
+            padding: 0 2px;
         }
 
         .project-item {
             position: relative;
-            height: 400px;
+            height: 450px;
+            background: #0a0a0a;
             overflow: hidden;
             cursor: pointer;
-            background: #0a0a0a;
         }
 
         .project-item img {
@@ -131,10 +144,9 @@
             height: 100%;
             object-fit: cover;
             transition: transform 1s ease, opacity 0.5s ease;
-            opacity: 0.7; /* Imagens escuras por padrão */
+            opacity: 0.6; /* Efeito dark inicial */
         }
 
-        /* Efeito: Ao passar o mouse, a imagem acende e dá zoom */
         .project-item:hover img {
             transform: scale(1.05);
             opacity: 1;
@@ -143,72 +155,99 @@
         .project-info {
             position: absolute;
             bottom: 30px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            z-index: 2;
+            left: 30px;
+            pointer-events: none;
         }
 
         .project-info h3 {
             font-weight: 400;
             letter-spacing: 3px;
             text-transform: uppercase;
-            font-size: 1rem;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* RODAPÉ */
+        /* RODAPÉ E CONTATO */
         footer {
-            padding: 80px 20px;
-            background: #000;
+            background: #080808;
+            padding: 80px 40px;
             border-top: 1px solid #222;
             margin-top: 50px;
-            color: #444;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 2;
         }
-        .socials { margin-bottom: 20px; }
-        .socials a { color: #fff; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
-        .socials a:hover { color: #888; }
+
+        .footer-address a {
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+            display: block;
+        }
+        .footer-address a:hover { color: #fff; }
+        
+        .footer-email {
+            margin-top: 20px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .socials { margin-top: 30px; }
+        .socials a { color: #fff; font-size: 1.4rem; margin: 0 15px; text-decoration: none; }
 
         /* LIGHTBOX */
         #lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: #000; justify-content: center; align-items: center; }
-        #lightbox img { max-width: 90%; max-height: 90%; box-shadow: 0 0 50px rgba(255,255,255,0.1); }
+        #lightbox img { max-width: 90%; max-height: 90%; box-shadow: 0 0 50px rgba(255,255,255,0.05); }
         .close { position: absolute; top: 30px; right: 40px; font-size: 40px; color: #fff; cursor: pointer; }
 
-        @media (max-width: 768px) {
-            .logo { font-size: 1.8rem; }
-            nav { flex-wrap: wrap; gap: 15px; }
+        /* RESPONSIVO MOBILE */
+        @media (max-width: 900px) {
+            .top-split { flex-direction: column; }
+            .left-panel, .right-panel { width: 100%; }
+            .left-panel { height: 200px; border-right: none; border-bottom: 1px solid #222; }
+            nav { justify-content: center; padding: 20px; }
+            .intro { padding: 40px 20px; text-align: center; }
+            .intro p { margin: 0 auto; }
             .grid { grid-template-columns: 1fr; }
-            .project-item { height: 300px; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="#" class="logo">A | ARQUITETURA</a>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#video">Vídeo</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#contato">Contato</a>
-    </nav>
-</header>
+<div class="top-split">
+    
+    <div class="left-panel">
+        <div class="logo-img">
+            A | ARQUITETURA<br>
+            <span style="font-size: 0.6rem; letter-spacing: 2px;">LOGO AQUI</span>
+        </div>
+    </div>
 
-<section id="home" class="intro">
-    <h1>Bem-vindo à A|ARQUITETURA</h1>
-    <p>Desenvolvemos projetos em São José dos Campos que unem a estética contemporânea à funcionalidade essencial. Nossa arquitetura é feita de luz, espaço e identidade.</p>
-</section>
+    <div class="right-panel">
+        <nav>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#contato">Contato</a>
+            <a href="https://instagram.com/arquitetoabner" target="_blank">Instagram</a>
+        </nav>
 
-<section id="video" class="video-section">
-    <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=1920" class="video-cover">
-    <div class="play-btn"><i class="far fa-play-circle"></i></div>
-</section>
+        <section class="intro">
+            <h1>Identidade & Espaço</h1>
+            <p>Arquitetura contemporânea em São José dos Campos. Projetamos cenários que unem funcionalidade, estética e a essência de quem habita.</p>
+        </section>
 
-<div id="portfolio" class="portfolio-title">Projetos Selecionados</div>
+        <section class="video-section">
+            <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=1920" class="video-cover">
+            <div class="play-icon"><i class="far fa-play-circle"></i></div>
+        </section>
+    </div>
+</div>
+
+<div id="portfolio" class="portfolio-header">Projetos Selecionados</div>
 
 <div class="grid">
     <div class="project-item" onclick="openLightbox(this)">
@@ -254,12 +293,21 @@
 </div>
 
 <footer id="contato">
+    <div class="footer-address">
+        <p style="color: #fff; margin-bottom: 10px; font-weight: bold;">A | ARQUITETURA</p>
+        <a href="https://www.google.com/maps/place/AArquitetura+e+Gest%C3%A3o+de+Obras/@-23.2116539,-45.9003052,15.57z/data=!4m6!3m5!1s0x94cc35483182e83f:0xed628c83cb6e6c9!8m2!3d-23.2199841!4d-45.9106168!16s%2Fg%2F11mzwslzds?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            Av. Cassiano Ricardo, 601 - Jardim Aquarius<br>
+            São José dos Campos - SP, 12246-870
+        </a>
+    </div>
+
+    <a href="mailto:arquitetoabner@gmail.com" class="footer-email">arquitetoabner@gmail.com</a>
+
     <div class="socials">
         <a href="https://instagram.com/arquitetoabner" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/5512988518440" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p>A | ARQUITETURA &copy; 2026</p>
-    <p style="color: #333; margin-top: 10px;">SÃO JOSÉ DOS CAMPOS</p>
+    <p style="margin-top: 40px; font-size: 0.6rem; color: #333;">&copy; 2026 ABNER ARQUITETURA</p>
 </footer>
 
 <div id="lightbox" onclick="closeLightbox()">
