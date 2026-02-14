@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A | ARQUITETURA - Portfólio</title>
+    <title>A | ARQUITETURA - Abner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #1a1a1a; --accent: #8e8e8e; --bg: #ffffff; }
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background: var(--bg); color: var(--primary); line-height: 1.6; }
         
-        /* Header Minimalista */
         header { padding: 60px 20px; text-align: center; background: #fff; }
         .logo { font-size: 1.8rem; letter-spacing: 8px; font-weight: 300; text-transform: uppercase; border-bottom: 1px solid #eee; display: inline-block; padding-bottom: 10px; margin-bottom: 20px; }
         nav { margin-top: 20px; }
         nav a { margin: 0 15px; text-decoration: none; color: var(--accent); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        /* Banner Principal */
-        .hero { height: 70vh; background: #f9f9f9; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-        .hero-content { text-align: center; z-index: 2; padding: 20px; }
-        .hero h2 { font-weight: 300; font-size: 2rem; letter-spacing: 2px; margin-bottom: 10px; }
-        .hero p { color: var(--accent); font-style: italic; }
+        .hero { height: 60vh; background: #f9f9f9; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .hero h2 { font-weight: 300; font-size: 2.2rem; letter-spacing: 2px; }
 
-        /* Galeria de Projetos */
-        .section-title { text-align: center; padding: 60px 0 20px; letter-spacing: 3px; text-transform: uppercase; font-size: 1.2rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 10px; padding: 10px; }
-        .item { position: relative; height: 450px; background: #eee; overflow: hidden; cursor: pointer; }
-        .item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-        .item:hover img { transform: scale(1.05); }
-        .item-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 40px 20px 20px; color: #fff; }
-        .item-overlay h3 { margin: 0; font-weight: 300; letter-spacing: 1px; }
+        .section-title { text-align: center; padding: 60px 0 30px; letter-spacing: 3px; text-transform: uppercase; font-size: 1.1rem; border-top: 1px solid #f0f0f0; margin-top: 40px; }
+        
+        /* Grid de Projetos */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 15px; padding: 15px; max-width: 1400px; margin: 0 auto; }
+        .item { position: relative; height: 400px; background: #eee; overflow: hidden; cursor: pointer; border-radius: 2px; }
+        .item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+        .item:hover img { transform: scale(1.08); }
+        .item-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 40px 25px 25px; color: #fff; opacity: 0.9; transition: 0.4s; }
+        .item:hover .item-overlay { opacity: 1; }
+        .item-overlay h3 { margin: 0; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; font-size: 1rem; }
 
-        /* Rodapé e Contato */
-        footer { padding: 80px 20px; text-align: center; background: #fafafa; border-top: 1px solid #eee; }
-        .social-links { margin-bottom: 30px; }
-        .social-links a { color: var(--primary); font-size: 1.5rem; margin: 0 15px; text-decoration: none; }
-        .contact-btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--primary); text-decoration: none; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
+        footer { padding: 80px 20px; text-align: center; background: #fafafa; }
+        .contact-btn { display: inline-block; padding: 18px 45px; border: 1px solid var(--primary); text-decoration: none; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; margin-top: 20px; }
         .contact-btn:hover { background: var(--primary); color: #fff; }
+        .social-links { margin-bottom: 25px; }
+        .social-links a { color: var(--primary); font-size: 1.4rem; margin: 0 15px; }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .hero h2 { font-size: 1.5rem; } }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .hero h2 { font-size: 1.6rem; } }
     </style>
 </head>
 <body>
@@ -47,45 +44,66 @@
     <div class="logo">A | ARQUITETURA</div>
     <nav>
         <a href="#projetos">Projetos</a>
-        <a href="#sobre">Escritório</a>
         <a href="#contato">Contato</a>
     </nav>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h2>Arquitetura Contemporânea.</h2>
-        <p>Projetos residenciais e interiores em São José dos Campos.</p>
+        <h2>Arquitetura Contemporânea & <br>Design Funcional.</h2>
+        <p style="color: #888; font-style: italic;">São José dos Campos e Região.</p>
     </div>
 </section>
 
-<div id="projetos" class="section-title">Portfólio Selecionado</div>
+<div id="projetos" class="section-title">Portfólio de Projetos</div>
 
 <section class="grid">
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Projeto Residencial">
-        <div class="item-overlay">
-            <h3>Residência Vale do Paraíba</h3>
-            <p>Concreto aparente e transparências.</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="TK HOUSE">
+        <div class="item-overlay"><h3>TK HOUSE</h3></div>
     </div>
     <div class="item">
-        <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=800&q=80" alt="Interiores">
-        <div class="item-overlay">
-            <h3>Consultório Odontológico</h3>
-            <p>Interiores e Humanização.</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35797?auto=format&fit=crop&w=800&q=80" alt="Proj. Alpha">
+        <div class="item-overlay"><h3>Proj. Alpha</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&w=800&q=80" alt="Res. R|D">
+        <div class="item-overlay"><h3>Res. R|D</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Ibiza house">
+        <div class="item-overlay"><h3>Ibiza house</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Res. W|M">
+        <div class="item-overlay"><h3>Res. W|M</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80" alt="Proj. M|Z">
+        <div class="item-overlay"><h3>Proj. M|Z</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800&q=80" alt="Proj. M|V">
+        <div class="item-overlay"><h3>Proj. M|V</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80" alt="Proj. Nascer">
+        <div class="item-overlay"><h3>Proj. Nascer</h3></div>
+    </div>
+    <div class="item">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Proj. V|S">
+        <div class="item-overlay"><h3>Proj. V|S</h3></div>
     </div>
 </section>
 
 <footer id="contato">
     <div class="social-links">
+        <a href="https://wa.me/5512988518440" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p>Interessado em desenvolver um projeto conosco?</p>
-    <a href="https://wa.me/SEU_NUMERO_AQUI" class="contact-btn">Solicitar Orçamento</a>
-    <p style="margin-top: 50px; font-size: 0.7rem; color: #999;">&copy; 2026 A|ARQUITETURA - Abner Arquiteto</p>
+    <p>Vamos transformar sua ideia em um projeto real?</p>
+    <a href="https://wa.me/5512988518440?text=Olá%20Abner,%20gostaria%20de%20um%20orçamento!" class="contact-btn" target="_blank">Enviar Mensagem no WhatsApp</a>
+    <p style="margin-top: 50px; font-size: 0.7rem; color: #999; letter-spacing: 1px;">&copy; 2026 A|ARQUITETURA - SÃO JOSÉ DOS CAMPOS</p>
 </footer>
 
 </body>
