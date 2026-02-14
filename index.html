@@ -44,6 +44,7 @@
         }
         nav a:hover { color: #fff; }
 
+        /* TEXTO INTRODUTÓRIO (Novo Estilo) */
         .intro-container {
             max-width: 800px;
             margin: 0 auto;
@@ -55,19 +56,38 @@
             font-weight: 300;
             font-size: 2.5rem;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             color: #fff;
             text-transform: uppercase;
         }
 
-        .intro-text {
+        .text-content p {
             color: #888;
             font-size: 1rem;
-            line-height: 1.6;
+            line-height: 1.8; /* Mais respiro entre as linhas */
             font-weight: 300;
+            margin-bottom: 25px;
         }
 
-        /* SEÇÃO DIVIDIDA (LOGO + VÍDEO) */
+        .text-content h3 {
+            color: #fff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .final-quote {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #222; /* Linha sutil separando a frase final */
+            color: #ccc !important;
+            font-style: italic;
+        }
+
+        /* SEÇÃO DIVIDIDA */
         .split-section {
             display: flex;
             width: 100%;
@@ -94,12 +114,11 @@
             justify-content: center;
         }
 
-        /* Configuração do Player de Vídeo */
         .video-box video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Faz o vídeo preencher todo o espaço sem deformar */
-            opacity: 0.8; /* Leve transparência para ficar elegante no fundo preto */
+            object-fit: cover;
+            opacity: 0.8;
         }
 
         /* PORTFÓLIO */
@@ -153,7 +172,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* LIGHTBOX (Tela Dividida) */
+        /* LIGHTBOX */
         #lightbox { 
             display: none; 
             position: fixed; 
@@ -271,11 +290,24 @@
         <a href="#contato">Contato</a>
         <a href="https://instagram.com/arquitetoabner" target="_blank">Instagram</a>
     </nav>
+
     <div class="intro-container">
-        <h1 class="intro-title">Identidade & Espaço</h1>
-        <p class="intro-text">
-            Arquitetura contemporânea em São José dos Campos. Projetamos cenários que unem funcionalidade, estética e a essência de quem habita.
-        </p>
+        <h1 class="intro-title">Onde o traço encontra a vida</h1>
+        
+        <div class="text-content">
+            <p>Acreditamos que um projeto começa muito antes do primeiro risco no papel. Ele nasce da escuta, da percepção dos ritmos e do entendimento de que o espaço molda quem o habita. Para nós, a ARQUITETURA é o equilíbrio entre o rigor técnico e a sensibilidade de criar cenários que estimulam o toque, o olhar e o bem-estar.</p>
+
+            <h3>Do Repertório à Realidade</h3>
+            <p>Nossa prática é um exercício constante de expansão. Cada cliente traz consigo um mapa de memórias e aspirações; nós entregamos o conhecimento para traduzir esse universo em formas tangíveis. É um processo de co-criação: ao amadurecermos um conceito, moldamos também novas formas de interagir com o mundo contemporâneo.</p>
+
+            <h3>A Permanência do Sentido</h3>
+            <p>Em um mundo em constante transformação, buscamos o que é perene. Projetamos para que a sensação de pertencimento seja o alicerce de cada ambiente. Mais do que estética, entregamos conexões humanas, compromisso com o detalhe e a certeza de que o bom design sobrevive às tendências.</p>
+
+            <p class="final-quote">
+                Arquitetura não é sobre o que se vê, mas sobre como se sente.<br>
+                É a materialização de valores que, uma vez construídos, tornam-se parte da nossa própria história.
+            </p>
+        </div>
     </div>
 </header>
 
@@ -447,4 +479,3 @@
 
 </body>
 </html>
-
