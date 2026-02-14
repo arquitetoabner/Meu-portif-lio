@@ -156,7 +156,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* NOVO LIGHTBOX (Tela Dividida) */
+        /* LIGHTBOX (Tela Dividida) */
         #lightbox { 
             display: none; 
             position: fixed; 
@@ -179,7 +179,6 @@
             box-shadow: 0 0 50px rgba(20,20,20,0.5);
         }
 
-        /* Coluna da Esquerda (Texto) */
         .lightbox-text {
             width: 30%;
             padding: 60px 40px;
@@ -207,7 +206,6 @@
             font-weight: 300;
         }
 
-        /* Coluna da Direita (Imagem) */
         .lightbox-image {
             width: 70%;
             height: 100%;
@@ -261,7 +259,6 @@
             .video-box { height: 300px; }
             .grid { grid-template-columns: 1fr; }
             
-            /* Lightbox no celular */
             .lightbox-content { flex-direction: column-reverse; width: 100%; height: 100%; }
             .lightbox-text { width: 100%; height: 40%; padding: 20px; overflow-y: auto; border-right: none; border-top: 1px solid #222; }
             .lightbox-image { width: 100%; height: 60%; }
@@ -300,8 +297,57 @@
 <div class="grid">
     
     <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Conceito arquitetônico arrojado, explorando balanços estruturais e materiais industriais como aço e vidro em harmonia com a natureza.">
+        <img src="Res. nascer.png" alt="Proj. Nascer">
+        <div class="project-info"><h3>Proj. Nascer</h3></div>
+    </div>
+
+    <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Residência contemporânea com design exclusivo. A integração dos ambientes e a valorização da luz natural criam uma atmosfera única.">
+        <img src="CASA-TJ.png" alt="CASA TJ">
+        <div class="project-info"><h3>CASA TJ</h3></div>
+    </div>
+
+    <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Projeto residencial contemporâneo. A integração dos ambientes sociais promove a convivência familiar em um espaço amplo e iluminado.">
+        <img src="Res. A.L.png" alt="Res. AL">
+        <div class="project-info"><h3>Res. AL</h3></div>
+    </div>
+
+    <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Residência de alto padrão que combina elegância e tecnologia. Automação residencial integrada ao design para máximo conforto.">
+        <img src="CASA VS.png" alt="Proj. V|S">
+        <div class="project-info"><h3>Proj. V|S</h3></div>
+    </div>
+
+    <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Projeto com volumetria dinâmica e uso inteligente do terreno em declive. A piscina com borda infinita conecta visualmente a casa à paisagem.">
+        <img src="CASA MV.png" alt="Proj. M|V">
+        <div class="project-info"><h3>Proj. M|V</h3></div>
+    </div>
+
+    <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Reforma completa transformando uma estrutura existente em uma obra contemporânea. Foco na funcionalidade e renovação estética da fachada.">
+        <img src="Res. MZ.png" alt="Proj. M|Z">
+        <div class="project-info"><h3>Proj. M|Z</h3></div>
+    </div>
+
+    <div class="project-item" 
+         onclick="openLightbox(this)"
+         data-description="Casa de veraneio inspirada no minimalismo tropical. Áreas de lazer integradas e paisagismo exuberante para momentos de relaxamento.">
+        <img src="Res. ibiza.png" alt="Ibiza house">
+        <div class="project-info"><h3>Ibiza house</h3></div>
+    </div>
+
+    <div class="project-item" 
          onclick="openLightbox(this)" 
-         data-description="Residência unifamiliar com foco na integração entre interior e exterior. Grandes vãos livres e uso de materiais naturais definem a identidade deste projeto no Urbanova.">
+         data-description="Residência unifamiliar com foco na integração entre interior e exterior. Grandes vãos livres e uso de materiais naturais definem a identidade deste projeto.">
         <img src="CASA TK HOUSE.png" alt="TK HOUSE">
         <div class="project-info"><h3>TK HOUSE</h3></div>
     </div>
@@ -322,58 +368,9 @@
 
     <div class="project-item" 
          onclick="openLightbox(this)"
-         data-description="Casa de veraneio inspirada no minimalismo tropical. Áreas de lazer integradas e paisagismo exuberante para momentos de relaxamento.">
-        <img src="Res. ibiza.png" alt="Ibiza house">
-        <div class="project-info"><h3>Ibiza house</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
          data-description="Residência moderna com linhas puras e volumetria marcante. O projeto explora a luz natural através de grandes aberturas envidraçadas.">
         <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800" alt="Res. W|M">
         <div class="project-info"><h3>Res. W|M</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Reforma completa transformando uma estrutura existente em uma obra contemporânea. Foco na funcionalidade e renovação estética da fachada.">
-        <img src="Res. MZ.png" alt="Proj. M|Z">
-        <div class="project-info"><h3>Proj. M|Z</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Projeto com volumetria dinâmica e uso inteligente do terreno em declive. A piscina com borda infinita conecta visualmente a casa à paisagem.">
-        <img src="CASA MV.png" alt="Proj. M|V">
-        <div class="project-info"><h3>Proj. M|V</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Conceito arquitetônico arrojado, explorando balanços estruturais e materiais industriais como aço e vidro em harmonia com a natureza.">
-        <img src="Res. nascer.png" alt="Proj. Nascer">
-        <div class="project-info"><h3>Proj. Nascer</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Residência de alto padrão que combina elegância e tecnologia. Automação residencial integrada ao design para máximo conforto.">
-        <img src="CASA VS.png" alt="Proj. V|S">
-        <div class="project-info"><h3>Proj. V|S</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Projeto residencial contemporâneo. A integração dos ambientes sociais promove a convivência familiar em um espaço amplo e iluminado.">
-        <img src="Res. A.L.png" alt="Res. AL">
-        <div class="project-info"><h3>Res. AL</h3></div>
-    </div>
-
-    <div class="project-item" 
-         onclick="openLightbox(this)"
-         data-description="Residência contemporânea com design exclusivo. A integração dos ambientes e a valorização da luz natural criam uma atmosfera única de conforto e sofisticação.">
-        <img src="CASA-TJ.png" alt="CASA TJ">
-        <div class="project-info"><h3>CASA TJ</h3></div>
     </div>
 
 </div>
