@@ -30,7 +30,6 @@
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid #222;
-            /* Altura ajustável automaticamente */
             min-height: auto; 
         }
 
@@ -53,7 +52,7 @@
         }
         nav a:hover { color: #fff; }
 
-        /* INTRO */
+        /* INTRO & BOTOES CTA */
         .intro-container {
             max-width: 800px;
             margin: 0 auto;
@@ -65,14 +64,58 @@
             font-weight: 300;
             font-size: 2.5rem;
             letter-spacing: 1px;
-            margin-bottom: 20px; /* Reduzi um pouco para ficar elegante quando sem texto */
+            margin-bottom: 10px; 
             color: #fff;
             text-transform: uppercase;
         }
 
-        /* ÁREA DA MISSÃO (Escondida por padrão) */
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 15px 35px;
+            border: 1px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* ÁREA DA MISSÃO */
         #missao-texto {
-            display: none; /* O Segredo: Começa escondido */
+            display: none; 
             padding-top: 20px;
             animation: fadeIn 0.8s ease;
         }
@@ -299,6 +342,7 @@
             .lightbox-text { width: 100%; height: 40%; padding: 20px; overflow-y: auto; border-right: none; border-top: 1px solid #222; }
             .lightbox-image { width: 100%; height: 60%; }
             .lightbox-text h2 { font-size: 1.4rem; margin-bottom: 15px; }
+            .floating-whatsapp { width: 50px; height: 50px; font-size: 25px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -316,6 +360,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="intro-container">
         <h1 class="intro-title">Onde o traço encontra a vida</h1>
+        
+        <a href="https://wa.me/5512988518440" target="_blank" class="cta-button">Fale com o Arquiteto</a>
         
         <div id="missao-texto" class="text-content">
             <p>Acreditamos que um projeto começa muito antes do primeiro risco no papel. Ele nasce da escuta, da percepção dos ritmos e do entendimento de que o espaço molda quem o habita. Para nós, a ARQUITETURA é o equilíbrio entre o rigor técnico e a sensibilidade de criar cenários que estimulam o toque, o olhar e o bem-estar.</p>
@@ -436,6 +482,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 </div>
+
+<a href="https://wa.me/5512988518440" target="_blank" class="floating-whatsapp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
     // FUNÇÃO PARA MOSTRAR/ESCONDER A MISSÃO
